@@ -14,7 +14,8 @@ export default {
           slate300: "rgb(154, 190, 213)",
           slate500: "rgb(107, 148, 168)",
           slate700: "rgb(78, 110, 126)",
-          slate900: "rgb(18, 47, 63)"
+          slate900: "rgb(18, 47, 63)",
+          slate1000: "rgb(13, 38, 53)"
         }
       },
       fontFamily: {

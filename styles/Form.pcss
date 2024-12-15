@@ -1,0 +1,81 @@
+@tailwind components;
+
+@layer components {
+  .sect-form {
+    @apply mx-auto h-[700px] w-[330px] pt-9;
+
+    &__title {
+      @apply text-xl font-bold text-primary-slate900;
+    }
+
+    &__clear {
+      @apply text-base font-medium text-primary-slate700 underline;
+    }
+
+    &__form {
+      @apply mt-8 overflow-hidden;
+
+      &__label {
+        @apply mb-5 flex flex-col gap-3 font-medium text-primary-slate700;
+
+        &--type {
+          @apply [&>div]:font-bold [&>div]:text-primary-slate900;
+        }
+
+        &__contain {
+          @apply flex h-[50px] w-full overflow-hidden rounded-lg border border-primary-slate700 has-[input:focus]:border-[theme(colors.primary.lime)_!important];
+
+          &--type {
+            @apply items-center justify-start gap-2 pl-4;
+          }
+
+          &__input {
+            outline: none;
+            border: none;
+            @apply w-full border-none p-4 font-bold text-primary-slate900;
+          }
+
+          &__type {
+            @apply flex h-full w-[50px] items-center justify-center bg-primary-slate100 font-medium text-primary-slate700;
+
+            input:focus ~ & {
+              background-color: theme(colors.primary.lime) !important;
+            }
+
+            &--rate {
+              width: 80px !important;
+            }
+          }
+
+          &__select {
+            @apply flex size-6 items-center justify-center rounded-full border-2 border-primary-slate700;
+
+            span {
+              @apply hidden size-4 items-center justify-center rounded-full border-2 border-primary-slate700 bg-primary-slate700;
+            }
+          }
+        }
+      }
+
+      &__button {
+        @apply flex h-[50px] w-full items-center justify-center gap-3 overflow-hidden rounded-3xl bg-primary-lime font-bold text-primary-slate900;
+      }
+    }
+  }
+
+  .active-amount {
+    background-color: theme(colors.primary.lime) !important;
+  }
+  .active {
+    border-color: theme(colors.primary.lime) !important;
+    @apply bg-primary-lime/15;
+  }
+  .active > div {
+    border-color: theme(colors.primary.lime) !important;
+  }
+  .active > div > span {
+    border-color: theme(colors.primary.lime) !important;
+    display: flex !important;
+    background-color: theme(colors.primary.lime) !important;
+  }
+}

@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500..700;1,500..700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 16px !important;
+  }
+
+  *,
+  html,
+  body {
+    box-sizing: border-box;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    outline: none !important;
+    border: none;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}

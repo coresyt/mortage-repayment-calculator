@@ -4,6 +4,7 @@ import react from "eslint-plugin-react"
 import reactHooks from "eslint-plugin-react-hooks"
 import reactRefresh from "eslint-plugin-react-refresh"
 import prettier from "eslint-config-prettier"
+import tailwind from "eslint-plugin-tailwindcss"
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -37,5 +38,6 @@ export default [
       ]
     }
   },
+  ...tailwind.configs["flat/recommended"],
   prettier
 ]
