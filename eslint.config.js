@@ -8,6 +8,7 @@ import tailwind from "eslint-plugin-tailwindcss"
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+  ...tailwind.configs["flat/recommended"],
   { ignores: ["dist"] },
   {
     files: ["**/*.{js,jsx}"],
@@ -35,9 +36,9 @@ export default [
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true }
-      ]
+      ],
+      "tailwindcss/no-custom-classname": [0, "off"]
     }
   },
-  ...tailwind.configs["flat/recommended"],
   prettier
 ]

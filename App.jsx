@@ -6,12 +6,14 @@ export default function App() {
   return (
     <>
       <section className="sect-form">
-        <h1 className="sect-form__title">Mortgage Calculator</h1>
-        <a className="sect-form__clear" href="#">
-          Clear All
-        </a>
+        <div>
+          <h1 className="sect-form__title">Mortgage Calculator</h1>
+          <a className="sect-form__clear" href="#">
+            Clear All
+          </a>
+        </div>
         <form className="sect-form__form">
-          <label className="sect-form__form__label">
+          <label className="sect-form__form__label lg:col-span-2">
             Mortgage Amount
             <div className="sect-form__form__label__contain flex-row-reverse">
               <input
@@ -22,7 +24,7 @@ export default function App() {
               <div className="sect-form__form__label__contain__type">£</div>
             </div>
           </label>
-          <label className="sect-form__form__label">
+          <label className="sect-form__form__label mr-5">
             Mortgage Term
             <div className="sect-form__form__label__contain">
               <input
@@ -44,7 +46,7 @@ export default function App() {
               </div>
             </div>
           </label>
-          <label className="sect-form__form__label">
+          <label className="sect-form__form__label lg:col-span-2">
             Mortgage Type
             <div className="active sect-form__form__label__contain sect-form__form__label__contain--type">
               <div className="sect-form__form__label__contain__select">
@@ -59,27 +61,30 @@ export default function App() {
               Interest Only
             </div>
           </label>
-          <button className="sect-form__form__button">
+          <button className="sect-form__form__button lg:col-span-2">
             <img src={IconCalculator} alt="Icon of a calculator" /> Calculate
             Repayments
           </button>
         </form>
       </section>
       {/* Empty results */}
-      <section className="sect-empty">
-        <img
-          className="sect-empty__image"
-          src={IlustrationEmpty}
-          alt="The illustration of the empty form"
-        />
-        <h2 className="sect-empty__title">Results shown here</h2>
-        <p className="sect-empty__desc">
-          Complete the form and click “calculate repayments” to see what <br />
-          your monthly repayments would be.
-        </p>
+      <section className="sect-empty" hidden>
+        <div>
+          <img
+            className="sect-empty__image"
+            src={IlustrationEmpty}
+            alt="The illustration of the empty form"
+          />
+          <h2 className="sect-empty__title">Results shown here</h2>
+          <p className="sect-empty__desc">
+            Complete the form and click “calculate repayments” to see what{" "}
+            <br />
+            your monthly repayments would be.
+          </p>
+        </div>
       </section>
       {/* Completed results */}
-      <section className="sect-result" hidden>
+      <section className="sect-result">
         <div className="sect-result__contain">
           <h2 className="sect-result__contain__title">Your results</h2>
           <p className="sect-result__contain__desc">

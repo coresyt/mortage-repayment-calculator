@@ -2,18 +2,36 @@
 
 @layer components {
   .sect-empty {
-    @apply h-[390px] w-auto overflow-hidden bg-primary-slate900;
+    @apply h-[390px] w-auto overflow-hidden bg-primary-slate900 lg:flex lg:h-full lg:w-[50%] lg:items-center lg:justify-center;
 
     &__image {
-      @apply mx-auto mb-5 mt-8 h-48 w-48;
+      @apply h-48 w-48 max-lg:mx-auto max-lg:mb-5 max-lg:mt-8 lg:mb-7;
     }
 
     &__title {
-      @apply text-center text-xl text-primary-white;
+      @apply text-center text-xl text-primary-white lg:mb-6 lg:text-2xl;
     }
 
     &__desc {
-      @apply mx-auto w-[300px] text-center text-primary-slate300;
+      @apply w-[300px] text-center text-primary-slate300 max-lg:mx-auto lg:w-full;
+    }
+  }
+
+  @media (width >= theme(screens.lg)) {
+    .sect-empty {
+      border-end-start-radius: 80px;
+
+      & > div {
+        width: 420px;
+        height: 300px;
+        @apply flex flex-col items-center justify-center;
+      }
+
+      &__desc {
+        br {
+          display: none;
+        }
+      }
     }
   }
 }
