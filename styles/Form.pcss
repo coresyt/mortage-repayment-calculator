@@ -1,4 +1,4 @@
-@tailwind components;
+/* @tailwind components;
 
 @layer components {
   main#root {
@@ -25,30 +25,177 @@
       &__label {
         @apply mb-6 flex flex-col gap-3 font-medium text-primary-slate700;
 
+        &:has(div > input:invalid) {
+          transition: all 0.3s ease-in-out;
+          border-color: theme(colors.primary.red) !important;
+          @apply text-primary-red/15;
+
+          &::after {
+            content: "This is field is required";
+            position: absolute;
+            color: theme(colors.primary.red);
+            top: 30%;
+            z-index: 20;
+          }
+        }
+
+        & > div {
+          @apply w-full overflow-hidden;
+        }
+
         &--type {
           @apply [&>div]:font-bold [&>div]:text-primary-slate900;
         }
 
         &__contain {
-          @apply flex h-[50px] w-full overflow-hidden rounded-lg border border-primary-slate700 has-[input:focus]:border-[theme(colors.primary.lime)_!important];
+          @apply relative flex h-[50px] w-full rounded-lg border border-primary-slate700 has-[input:focus]:border-[theme(colors.primary.lime)];
 
           &--type {
             @apply items-center justify-start gap-2 pl-4 hover:cursor-pointer hover:border-primary-lime/50;
           }
 
           &__input {
-            outline: none;
-            border: none;
+            outline: none !important;
+            border: none !important;
+
+            &:focus ~ div {
+              transition: all 0.3s ease-in-out;
+              background-color: theme(colors.primary.lime) !important;
+            }
+
+            &:invalid ~ div {
+              transition: all 0.3s ease-in-out;
+              color: white;
+              background-color: theme(colors.primary.red) !important;
+            }
+
             @apply w-full border-none p-4 font-bold text-primary-slate900 hover:cursor-pointer;
           }
 
           &__type {
             @apply flex h-full w-[50px] items-center justify-center bg-primary-slate100 font-medium text-primary-slate700;
 
-            input:focus ~ & {
+            &--rate {
+              width: 80px !important;
+            }
+          }
+
+          &__select {
+            @apply flex h-6 w-6 items-center justify-center rounded-[100%] border-2 border-primary-slate700;
+            transition: all 0.3s ease-in-out;
+
+            span {
+              @apply hidden h-4 w-4 items-center justify-center rounded-[100%] border-2 border-primary-slate700 bg-primary-slate700;
+            }
+          }
+        }
+      }
+
+      &__button {
+        @apply flex h-[50px] w-full items-center justify-center gap-3 overflow-hidden rounded-3xl bg-primary-lime font-bold text-primary-slate900 hover:cursor-pointer hover:border-primary-lime/50 hover:bg-primary-lime/50;
+      }
+    }
+  }
+
+  @media (width >= 1024px) {
+    .sect-form {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 25px 1fr;
+      gap: 40px;
+
+      & > div {
+        @apply flex items-start justify-between;
+      }
+      &__form {
+        box-sizing: border-box;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+    }
+  }
+} */
+
+@tailwind components;
+
+@layer components {
+  main#root {
+    @apply mx-auto bg-primary-white lg:my-[calc(calc(100vh-610px)/2)] lg:flex lg:h-[610px] lg:w-[1010px] lg:overflow-hidden lg:rounded-2xl;
+  }
+
+  .sect-form {
+    @apply max-lg:mx-auto max-lg:h-[700px] max-lg:w-[330px] max-lg:pt-9 lg:h-full lg:w-[50%];
+    & > * {
+      transition: all 0.3s ease-in-out;
+    }
+
+    &__title {
+      @apply text-xl font-bold text-primary-slate900;
+    }
+
+    &__clear {
+      @apply text-base font-medium text-primary-slate700 underline;
+    }
+
+    &__form {
+      @apply mt-8 overflow-hidden lg:mt-0 lg:h-full;
+
+      &__label {
+        @apply relative mb-6 flex flex-col gap-3 font-medium text-primary-slate700;
+
+        &--type {
+          @apply [&>div]:font-bold [&>div]:text-primary-slate900;
+        }
+
+        &__contain:has(input:invalid) + p {
+          display: inline;
+          position: absolute;
+          color: theme(colors.primary.red);
+          height: 30px;
+          width: 300px;
+          z-index: 20;
+
+          &.amount {
+            top: 85px;
+          }
+        }
+
+        &__contain {
+          @apply flex h-[50px] w-full overflow-hidden rounded-lg border border-primary-slate700 has-[input:focus]:border-[theme(colors.primary.lime)];
+
+          &--type {
+            @apply items-center justify-start gap-2 pl-4 hover:cursor-pointer hover:border-primary-lime/50;
+          }
+
+          &:has(input:invalid) {
+            transition: all 0.3s ease-in-out;
+            border-color: theme(colors.primary.red) !important;
+            @apply text-primary-red/15;
+          }
+
+          &__input {
+            outline: none !important;
+            border: none !important;
+
+            &:focus ~ div {
               transition: all 0.3s ease-in-out;
               background-color: theme(colors.primary.lime) !important;
             }
+
+            &:invalid ~ div {
+              transition: all 0.3s ease-in-out;
+              color: white;
+              background-color: theme(colors.primary.red) !important;
+            }
+
+            @apply w-full border-none p-4 font-bold text-primary-slate900 hover:cursor-pointer;
+          }
+
+          &__type {
+            @apply flex h-full w-[50px] items-center justify-center bg-primary-slate100 font-medium text-primary-slate700;
 
             &--rate {
               width: 80px !important;
