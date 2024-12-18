@@ -1,7 +1,6 @@
 {
   "type": "module",
   "scripts": {
-    "postinstall": "pnpm run dev",
     "dev": "vite dev --port 3000",
     "build": "vite build",
     "lint": "eslint . && prettier . --write",
